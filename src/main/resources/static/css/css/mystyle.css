@@ -1,0 +1,18 @@
+@CHARSET "ISO-8859-1";
+
+table,tr,td,th{
+	border:1px solid black;
+	
+}
+th{
+	background-color:pink;
+}
+tr:hover{
+	background-color:yellow;
+}
+#crUser{
+	width:550px;
+	background-color:#a5f5f7;
+	height:300px;
+	border:1px solid gray;
+}
