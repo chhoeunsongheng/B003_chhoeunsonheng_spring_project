@@ -8,12 +8,12 @@
 		<ul id="menu" class="side-nav metismenu" >
 			<!-- header section -->
 			<li class="sidebar-header" th:text="#{menu}">Menu</li>
-			<li><a th:href="@{/student}" class="collapse"><i class="fa fa-home" aria-hidden="true"></i><span class="drop-header" th:text="#{dashboard}">Dashboard</span></a></li>
-			<li><a th:href="@{/users}" class="collapse"><i class="fa fa-th" aria-hidden="true"></i><span class="drop-header" th:text="#{user}">User</span>
-				<div class="badge badge-primary">9</div></a></li>    
-			<li><a th:href="@{/user-cu}" class="collapse"><span class="drop-header" th:text="#{crateuser}">Create user</span></a></li>
-			<li><a th:href="@{/user-list}" class="collapse"><span class="drop-header" th:text="#{userList}">User List</span></a></li>
-			<li><a th:href="@{/user-role}" class="collapse"><span class="drop-header" th:text="#{userrole}">User Role</span></a></li>                
+			<li><a th:href="@{/dashboard}" class="collapse"><i class="fa fa-home" aria-hidden="true"></i><span class="drop-header" th:text="#{dashboard}">Dashboard</span></a></li>
+			<li><a th:href="@{/user-role}" class="collapse"><i class="fa fa-th" aria-hidden="true"></i><span class="drop-header" th:text="#{userList}">User Role</span></a></li> 
+			<li><a th:href="@{/user-cu}" class="collapse"><span class="drop-header" th:text="#{crateuser}">Add User</span></a></li>
+			<li><a th:href="@{/user/role}" class="collapse"><span class="drop-header" th:text="#{userrole}">User Role</span></a></li> 
+			<li><a th:href="@{/profile}" class="collapse"><span class="drop-header" th:text="#{addrole}">Add role</span>
+				<div class="badge badge-primary">9</div></a></li>                  
 
 	</nav> 
 	</div> 	

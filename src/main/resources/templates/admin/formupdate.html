@@ -11,44 +11,75 @@
 <body>
 <div layout:fragment="content">
 	<!-- ////////// Page ////////// -->
-<div id="page"  id="earnings_chart" id="visitors_chart">
+<div id="page">
 	<!-- ////////// Content ////////// -->
-	<div id="content">
+	<div id="content" id="earnings_chart" id="visitors_chart">
 
 		<!-- ////////// Page Title & Breadcrumbs //////////-->
+		
+
 		<div class="row">
 			<div class="col-xs col-sm-12 col-md-12 col-lg-12 col-xl-12">
-				<h4 th:text="#{userlist}">User List</h4>
-				<p class="text-muted" th:text="#{welcometouser}">Welcome to User</p>
+				<h4​ th:text="#{formvalidation}">Form Validation</h4>
+				<nav class="breadcrumb">
+					<a class="breadcrumb-item" href="#">Home</a>
+					<a class="breadcrumb-item" href="#">Forms</a>
+					<span​ class="breadcrumb-item active">Form Validation</span>
+				</nav> <!-- /breadcrumb -->
 			</div> <!-- /col -->
 		</div> <!-- /row -->
 
 		<div class="row">
-			<div class="col-xs col-sm-12 col-md-12 col-lg-12 col-xl-12" id="sale_chart">
-				<table>
-				<tr>
-					<th th:text="#{id}">ID</th>
-					<th th:text="#{username}">Name</th>
-					<th th:text="#{gender}">Gender</th>
-					<th th:text="#{email}">Email</th>
-				</tr>
-				<tr  th:each="st:${user}">
-				<td  th:text="${st.id}"></td>
-				<td  th:text="${st.username}"></td>
-				<td  th:text="${st.gender}"></td>
-				<td  th:text="${st.email}"></td>
-				</tr>
-	</table>
-			</div> <!-- /col -->
-			
-		</div> <!-- /row -->
 		
-		<div class="row">
-			<div class="col-xs col-sm-12 col-md-12 col-lg-12 col-xl-4" id="earnings_chart">
-				
-			</div> <!-- /col -->
-		</div> <!-- /row -->
-
+			<!-- ////////// Basic Form Validation //////////-->
+			<div class="col-xs col-sm-12 col-md-12 col-lg-6 col-xl-6 mt-4" style="margin-left:200px">        
+				<div class="card">
+					<div class="card-heading">
+						<h5 th:text="#{updateuser}">Update User</h5>
+						<p></p>
+					</div> <!-- /card-heading -->
+					<div class="card-body">
+						<form th:action="@{/user/updated(user_hash=${USER.user_hash})}" method="POST" th:object="${USER}"  th:each="st:${user}" data-toggle="validator" >
+							<div class="form-group">
+								<label th:text="#{Id}"​​ for="example_valid_name" class="form-label">ID</label>
+								<input class="form-control" th:field="*{id}" type="text" placeholder="th:text="${USER.id}"" id="example_valid_name" >
+								<div class="help-block with-errors"></div>
+							</div> <!-- /form-group -->
+							<div class="form-group">
+								<label th:text="#{Name}" for="example_valid_name" class="form-label">Name</label>
+								<input class="form-control" th:field="*{username}" type="text" placeholder="Name" id="example_valid_name">
+								<div class="help-block with-errors"></div>
+							</div> <!-- /form-group -->
+							<div class="form-group">
+								<label th:text="#{Gender}" for="example_valid_name" class="form-label">Gender</label>
+								<input class="form-control" th:field="*{gender}" type="text" placeholder="Gender" id="example_valid_name"> 
+								
+								<div class="help-block with-errors"></div>
+							</div> <!-- /form-group -->
+							<div class="form-group">
+								<label th:text="#{Email}" for="example_valid_email" class="form-label">Email</label>
+								<input class="form-control" th:field="*{email}" type="email" placeholder="E-mail" id="example_valid_email">
+								<div class="help-block with-errors"></div>
+							</div> <!-- /form-group -->
+							<div class="form-group">
+								<label th:text="#{Phonenumber}" for="example_valid_password" class="form-label">PhoneNumber</label>
+								<input class="form-control" th:field="*{phonenumber}" placeholder="PhoneNumber" id="example_valid_password">
+								
+								<div class="help-block with-errors"></div>
+							</div> <!-- /form-group -->
+							<div class="form-group">
+								<label th:text="#{Userhash}" for="example_valid_name" class="form-label">User Hash</label>
+								<input class="form-control" type="text" placeholder="User hash" id="example_valid_name"> 
+								
+								<div class="help-block with-errors"></div>
+							</div> <!-- /form-group -->
+							<button th:text="#{edit}" type="submit" class="btn-primary pull-right" style="background-color:#23fe1a;">Submit</button>
+						</form> <!-- /form -->
+					</div> <!-- /card-body -->
+				</div> <!-- /card -->
+			</div> <!-- /col -->                
+ 
+		</div> 
 		
 
 	</div> <!-- /content -->

@@ -9,7 +9,7 @@
 		</button> <!-- /hamburger -->
 		<div id="brand">
 			<a href="index.html" class="brand-wrapper">
-				<img src="img/logo.png" class="img-fluid" alt="">
+				<img th:src="@{/resources/img/logo.png}" class="img-fluid" alt="">
 				<span class="title">Vega</span>
 			</a> <!-- /brand-wrapper -->
 		</div> <!-- /brand -->
@@ -26,8 +26,8 @@
 			</span>
 						
 		</button> <!-- /hamburger -->
-		<a th:href="@{/users?lang=en}"><img th:src="@{/resources/img/f2.jpg}" style="width:60px; height:40px;margin-left:690px;"></a>
-		<a th:href="@{/users?lang=kh}"><img th:src="@{/resources/img/f1.png}" style="width:60; height:40px;margin-left:10px;" ></a>
+		<a th:href="@{/dashboard?lang=en}"><img th:src="@{/resources/img/f2.jpg}" style="width:60px; height:40px;margin-left:690px;"></a>
+		<a th:href="@{/dashboard?lang=kh}"><img th:src="@{/resources/img/f1.png}" style="width:60; height:40px;margin-left:10px;" ></a>
 		
 
 	</div> <!-- /left -->

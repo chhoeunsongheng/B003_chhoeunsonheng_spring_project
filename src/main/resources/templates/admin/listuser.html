@@ -11,70 +11,69 @@
 <body>
 <div layout:fragment="content">
 	<!-- ////////// Page ////////// -->
-<div id="page">
-	<!-- ////////// Content ////////// -->
-	<div id="content" id="earnings_chart" id="visitors_chart">
+<div id="page"  id="earnings_chart" id="visitors_chart">
+	
+	<div id="content">
 
 		<!-- ////////// Page Title & Breadcrumbs //////////-->
 		<div class="row">
 			<div class="col-xs col-sm-12 col-md-12 col-lg-12 col-xl-12">
-				<h4 th:text="#{userlist}">CREATE USER</h4>
-				<p class="text-muted"></p><br/>
+				<h4 th:text="#{userlist}"></h4>
+				<nav class="breadcrumb">
+					<a class="breadcrumb-item" href="#">Home</a>
+					<a class="breadcrumb-item" href="#">Tables</a>
+					<span class="breadcrumb-item active">Data Tables</span>
+				</nav> <!-- /breadcrumb -->
 			</div> <!-- /col -->
 		</div> <!-- /row -->
 
 		<div class="row">
-			<div class="col-xs col-sm-12 col-md-12 col-lg-12 col-xl-12" id="sale_chart">
-			<div id="crUser">
-					<form th:action="@{/users}" th:object="${USER}" th:method="POST">
-			<table style="margin:auto; margin-top:30px;">
-				<tr>
-					<td style="color:blue;width:150px"><label th:text="#{id}"></label></td>
-					<td style="color:blue;width:350px"><input style="color:blue;width:350px" th:field="*{id}"/></td>
-				</tr>
-				<tr>
-					<td style="color:blue;width:150px"><label th:text="#{name}">  </label></td>
-					<td style="color:blue;width:350px"><input  style="color:blue;width:350px"th:field="*{name}" />
-				</tr>
-				<tr>
-					<td style="color:blue;width:150px"><label  th:text="#{gender}"></label></td>
-					<td>
-						<select th:field="*{gender}">
-							<option value="M">Male</option>
-							<option value="F">Female</option>
-						</select>
-						</td>
-					</tr>
-					<tr>
-					<td style="color:blue;width:150px"><label th:text="#{email}">  </label></td>
-					<td style="color:blue;width:350px"><input  style="color:blue;width:350px" th:field="*{email}" />
-					</tr>		
-				</table>
-				<br>
-				<input type="submit"/>
-				</form>	
-				</div>
-				
-			</div> <!-- /col -->
-			
-		</div> <!-- /row -->
-		
-		<div class="row">
-			
-			<!-- ////////// Earnings Widget ////////// -->
-			<div class="col-xs col-sm-12 col-md-12 col-lg-12 col-xl-4" id="earnings_chart">
-				
-			</div> <!-- /col -->
-			
-			<!-- ////////// Visits Widget ////////// -->
-			<!-- ////////// Server Usage Widget ////////// -->
 
+			<!-- ////////// Basic DataTable //////////-->
+			<div class="col-xs col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-4">        
+				<div class="card">
+					<div class="card-heading">
+						<h5 th:text="#{table}"></h5>
+					</div> <!-- /card-heading -->
+					<div class="card-body">
+
+					<table id="basic_table" class="table_top_content table table-responsive table-striped"> 
+						<thead>
+							<tr>
+								<th th:text="#{Id}">ID</th>
+								<th th:text="#{Name}">Name</th>
+								<th th:text="#{Gender}">Gender</th>
+								<th th:text="#{Email}">Email</th>
+								<th th:text="#{Phonenumber}">PhoneNumber</th>
+								<th th:text="#{Userhash}">User_hash</th>
+								<th​ th:text="#{action}">Action</th>
+							</tr> 
+						</thead> <!-- /thead -->
+						<tbody>
+								<tr  th:each="st:${user}">
+								<td  th:text="${st.id}"></td>
+								<td  th:text="${st.username}"></td>
+								<td  th:text="${st.gender}"></td>
+								<td  th:text="${st.email}"></td>
+								<td  th:text="${st.phonenumber}"></td>
+								<td  th:text="${st.user_hash}"></td>
+								<td>
+									<a th:href="@{/user-cu}"><button th:text="#{add}"style="border-radius:15%; background-color:#cde6f2" type="submit">Insert</button></a>
+									<a th:href="@{/update/}+${st.user_hash}"><button  th:text="#{update}" style="border-radius:15%; background-color:#cde6f2" type="submit">Update</button></a>
+									<a th:href="@{/user/delete/}+${st.user_hash}"><button th:text="#{delete}" style="border-radius:15%; background-color:#cde6f2" type="submit">Delete</button></a>
+									<a th:href="@{/view/}+${st.user_hash}"><button th:text="#{view}" style="border-radius:15%; background-color:#cde6f2" type="submit">View</button></a>
+								</td>
+							</tr>
+						</tbody> <!-- /tbody -->
+						
+					</table> <!-- /table-responsive -->
+					</div> <!-- /card-body -->
+				</div> <!-- /card -->
+			</div> <!-- /col -->      
 
 		</div> <!-- /row -->
-
-		
-
-	</div> <!-- /content -->
+	
+	</div> 
 
 	<!-- ////////// Right Sidebar ////////// -->
 	<div id="right-sidebar">
@@ -132,7 +131,7 @@
 						</div> <!-- /chat-message -->
 					</a> <!-- /chat-item -->                     
 					<a href="#" class="chat-item">
-						<div class="chat-media">
+					/4
 							<img src="img/chat/chat-profile3.jpg" class="rounded-circle" alt="">
 						</div> <!-- /chat-media -->
 						<div class="chat-message">
@@ -321,3 +320,4 @@
 <script th:src="@{/resources/js/js/custom.min.js}"></script>
 </th:block>
 </body>
+</html>

@@ -1,8 +1,8 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http//www.thymeleaf.org"
  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
  layout:decorator="/admin/layout">
-
 
 <head>
 <meta charset="ISO-8859-1"/>
@@ -18,58 +18,67 @@
 		<!-- ////////// Page Title & Breadcrumbs //////////-->
 		<div class="row">
 			<div class="col-xs col-sm-12 col-md-12 col-lg-12 col-xl-12">
-				<h4 th:text="#{tableuser}">Table user</h4>
-				<p class="text-muted" th:text="#{table}"> table</p>
+				<h4 th:text="#{userlist}">User List</h4>
 			</div> <!-- /col -->
 		</div> <!-- /row -->
 
 		<div class="row">
+			
+			<!-- ////////// Sale Chart //////////-->
 			<div class="col-xs col-sm-12 col-md-12 col-lg-12 col-xl-12">
 				<div class="card dashboard-widget sale-widget">
 					<div class="card-heading">
 						<div class="top-heading">
-							<h5>Sales</h5>
-							<div class="tools">
-								<button type="button" class="btn-tools btn-hide-card">
-									<i class="fa fa-chevron-down" aria-hidden="true"></i>
-								</button> <!-- /btn-hide -->
-								<button type="button" class="btn-tools btn-refresh-card">
-									<i class="fa fa-refresh" aria-hidden="true"></i>
-								</button> <!-- /btn-refresh -->
-								<button type="button" class="btn-tools btn-close-card">
-									<i class="fa fa-times" aria-hidden="true"></i>
-								</button> <!-- /btn-close -->
-							</div> <!-- /tools -->
+							<h5 th:text="#{user}">USERS</h5>
+							
 						</div> <!-- /top-heading -->
-						<ul class="list-unstyled chart-options">
-							<li>               
-								<div class="option-1"><span class="status"></span>Last Month</div>
-							</li> <!-- /li -->
-							<li>
-								<div class="option-2"><span class="status"></span>Last Year</div>
-							</li> <!-- /li -->                
-							<li>
-								<div class="option-3"><span class="status"></span>Total</div>
-							</li> <!-- /li -->
-						</ul> <!-- /chart-options -->
+						
 					</div> <!-- /card-heading -->
 					<div class="card-body p-0">
-						<canvas id="sale_chart">
-						</canvas> <!-- /sale_chart -->
+						<div id="sale_chart">
+						<div class="row">
+						<div style="width:250px;height:250px; background-color:#b3e6fc; margin-left:50px;">
+							<a th:href="@{/user-role}"><h1 th:text="#{user}"style="text-align:center; margin-top:100px;text-shadow:2px 2px #000;">USERS</h1></a>
+							<h1 style="text-align:center;" th:text="${USER}"></h1>
+						</div>
+						<div style="width:250px;height:250px; background-color:#b3e6fc; margin-left:50px;">
+							<a th:href="@{/user-role}"><h1 th:text="#{male}"style="text-align:center; margin-top:100px;text-shadow:2px 2px #000;">MALE</h1></a>
+							<h1 style="text-align:center;" th:text="${USERM}"></h1>
+						</div>
+						<div style="width:250px;height:250px; background-color:#b3e6fc; margin-left:50px;">
+						<h1 th:text="#{female}" style="text-align:center; margin-top:100px;text-shadow:2px 2px #000;">FEMALE</h1>
+						<h1 style="text-align:center;" th:text="${USERF}"></h1>	
+						</div>
+						</div>
+						</div> <!-- /sale_chart -->
 					</div> <!-- /card-body -->
 				</div> <!-- /card -->
 			</div> <!-- /col -->
 			
+		</div>
+			
 		</div> <!-- /row -->
 		
 		<div class="row">
-			<div class="col-xs col-sm-12 col-md-12 col-lg-12 col-xl-4" id="earnings_chart">
-				
+			
+			<!-- ////////// Earnings Widget ////////// -->
+			<div class="col-xs col-sm-12 col-md-12 col-lg-12 col-xl-4">
+				<div id="earnings_chart">
+				</div> 
 			</div> <!-- /col -->
-		</div> <!-- /row -->
+			
+			<div class="col-xs col-sm-12 col-md-12 col-lg-12 col-xl-4">
+				<div id="visitors_chart"></div>
+			</div> <!-- /col -->         
 
+		</div>
+		<div class="row">   
+
+			<!-- ////////// Team DataTable //////////-->
+			
+
+			<!-- ////////// Location Widget //////////-->
 		
-
 	</div> <!-- /content -->
 
 	<!-- ////////// Right Sidebar ////////// -->
